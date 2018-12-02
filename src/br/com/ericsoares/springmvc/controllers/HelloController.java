@@ -1,6 +1,7 @@
 package br.com.ericsoares.springmvc.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -14,7 +15,9 @@ public class HelloController {
 		return "hello";
 	}
 	
-	
-	
-	
+	@RequestMapping("/mensagemDoServidor")
+	public String mensagemDoServidor(Model model) {
+		model.addAttribute("mensagem", "Olá, Eric Soares");
+		return "mensagemDoServidor";
+	}
 }
