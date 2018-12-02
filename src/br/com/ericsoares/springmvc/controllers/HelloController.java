@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -35,4 +36,12 @@ public class HelloController {
 		model.addAttribute("mensagem", msg);
 		return "mensagemDoServidor";
 	}
+	
+	@RequestMapping("/receberMensagemV2")
+	public String receberMensagemV2(Model model, @RequestParam(value = "mensagem", required = false, defaultValue = "mensagem Padrão") String msg) {
+		model.addAttribute("mensagem", msg);
+		return "mensagemDoServidor";
+	}
+
+	
 }
