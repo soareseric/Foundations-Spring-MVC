@@ -1,7 +1,10 @@
 package br.com.ericsoares.springmvc.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,9 +22,11 @@ public class AlbunsController {
 	}
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-	public String adicionar(@ModelAttribute("album") Album novoAlbum, Model model) {
+	public String adicionar(@ModelAttribute("album") @Valid Album novoAlbum, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			return "albuns/adicionar";
+		}
 		model.addAttribute("album", novoAlbum);
 		return "albuns/exibir";
 	}
-	
 }
