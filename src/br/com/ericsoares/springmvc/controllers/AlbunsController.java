@@ -28,7 +28,7 @@ public class AlbunsController {
 		List<Album> albuns = repo.findAll();
 		model.addAttribute("albuns", albuns);
 		return "album.listar.tiles";
- 	}
+ 	}	
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public String adicionar(Model model) {
@@ -45,8 +45,25 @@ public class AlbunsController {
 		return "redirect/albuns/listar";
 	}
 	
-	@RequestMapping(value = "/alterar/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/alterar/{id}", method = RequestMethod.GET)
 	public String alterar(@PathVariable("id") Long id, Model model) {
-		// TODO
+		Album albumAlterado = repo.findOne(id);
+		model.addAttribute("album", albumAlterado);
+		return "album.alterar.tiles";
+	}
+	
+	@RequestMapping(value = "/alterar", method = RequestMethod.POST)
+	public String alterar(@ModelAttribute("album") @Valid Album album, BindingResult result) {
+		if(result.hasErrors()) {
+			return "album.alterar.tiles";
+		}
+		repo.save(album);
+		return "redirect:albuns/listar";
+	}
+	
+	@RequestMapping(value = "/excluir/{id}", method = RequestMethod.GET)
+	public String excluir(@PathVariable("id") Long id) {
+		repo.delete(id);
+		return "redirect:albuns/listar";
 	}
 }
