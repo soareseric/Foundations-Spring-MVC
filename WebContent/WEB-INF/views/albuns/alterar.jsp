@@ -3,14 +3,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<c:url var="actionAdicionar" value="/albuns/adicionar"></c:url>
-<h2>Inserção de novo álbum...</h2>
+<c:url var="actionAlterar" value="/albuns/alterar"></c:url>
+<h2>Alteração do álbum ${album.nome}</h2>
 <br />
-<form:form action="${actionAdicionar}" method="post"
+<form:form action="${actionAlterar}" method="post"
 	modelAttribute="album">
-
+	
 	<div class="row">
 		<div class="col-md-6">
+			<div class="form-group">
+				<label>ID:</label>
+				<form:input path="id" cssClass="form-control" readonly="true"/>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">	
 			<div class="form-group">
 				<label>Nome:</label>
 				<form:input path="nome" cssClass="form-control" />
