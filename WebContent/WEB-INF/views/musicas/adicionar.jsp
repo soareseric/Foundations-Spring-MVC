@@ -4,19 +4,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <c:url var="actionAdicionar" value="/albuns/adicionar"></c:url>
-<h2>Edição de nova música ${musica.nome}</h2>
+<h2>Inserção de nova música...</h2>
 <br />
-<form:form action="${actionEditar}" method="post"
+<form:form action="${actionAdicionar}" method="post"
 	modelAttribute="musica">
-	
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label>ID:</label>
-				<form:input path="id" cssClass="form-control" readonly="true"/>
-			</div>
-		</div>
-	</div>
 
 	<div class="row">
 		<div class="col-md-6">

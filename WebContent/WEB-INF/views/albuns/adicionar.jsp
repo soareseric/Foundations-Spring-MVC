@@ -22,7 +22,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label>Ano de Lancamento</label>
+				<label>Ano de Lancamento:</label>
 				<form:input path="anoDeLancamento" cssClass="form-control"/>
 				<form:errors path="anoDeLancamento" cssStyle="color: red;"></form:errors>
 			</div>
