@@ -31,13 +31,12 @@ public class Musica {
 	@Size(min = 3, max = 10, message = "O nome da música deve conter entre 3 a 10 caracteres")
 	@NotEmpty(message = "O nome é obrigatório")
 	@NotNull(message = "O nome é obrigatório")
-	private String name;
+	private String nome;
 
 	@Column(name = "mus_data_criacao", nullable = false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull(message = "A data de criação é obrigatória")
-	@NotEmpty(message = "A data de criação é obrigatória")
 	private Date dataCriacao;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -54,12 +53,12 @@ public class Musica {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Date getDataCriacao() {

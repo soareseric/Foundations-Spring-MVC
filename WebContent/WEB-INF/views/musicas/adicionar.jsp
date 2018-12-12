@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<c:url var="actionAdicionar" value="/albuns/adicionar"></c:url>
+<c:url var="actionAdicionar" value="/musicas/adicionar"></c:url>
 <h2>Inserção de nova música...</h2>
 <br />
 <form:form action="${actionAdicionar}" method="post"
@@ -23,8 +23,8 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Data de criação:</label>
-				<form:input path="anoDeLancamento" cssClass="form-control"/>
-				<form:errors path="anoDeLancamento" cssStyle="color: red;"></form:errors>
+				<form:input path="dataCriacao" cssClass="form-control"/>
+				<form:errors path="dataCriacao" cssStyle="color: red;"></form:errors>
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<label>Album:</label>
 				<form:select path="album.id" cssClass="form-control">
-					<form:options item="${albuns}" itemLabel="nome" itemValue="id" />
+					<form:options items="${albuns}" itemLabel="nome" itemValue="id" />
 				</form:select>
 			</div>
 		</div>

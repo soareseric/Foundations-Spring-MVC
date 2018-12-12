@@ -11,20 +11,24 @@
           Álbuns
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Listar</a>
-          <a class="dropdown-item" href="#">Cadastrar</a>
+          <a class="dropdown-item" href="/springmvc/albuns/listar">Listar</a>
+          <a class="dropdown-item" href="/springmvc/albuns/adicionar">Cadastrar</a>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Musicas
+          Musicas<span class="caret"></span>	
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Listar</a>
-          <a class="dropdown-item" href="#">Cadastrar</a>
-        </div>
+        <ul class="dropdown-menu">
+        	<li><a href="/springmvc/musicas/listar"></a></li>
+        	<li><a href="/springmvc/musicas/adicionar"></a></li>
+        </ul>
+       <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/springmvc/musicas/listar">Listar</a>
+          <a class="dropdown-item" href="/springmvc/musicas/adicionar">Cadastrar</a>
+        </div> --> 
       </li>
     </ul>
   </div>

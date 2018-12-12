@@ -3,11 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<c:url var="actionAlterar" value="/albuns/alterar"></c:url>
-<h2>Alteração do álbum ${album.nome}</h2>
+<c:url var="actionAlterar" value="/musicas/alterar"></c:url>
+<h2>Edição de nova música ${musica.nome}</h2>
 <br />
 <form:form action="${actionAlterar}" method="post"
-	modelAttribute="album">
+	modelAttribute="musica">
 	
 	<div class="row">
 		<div class="col-md-6">
@@ -19,7 +19,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">	
+		<div class="col-md-6">
 			<div class="form-group">
 				<label>Nome:</label>
 				<form:input path="nome" cssClass="form-control" />
@@ -31,13 +31,22 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label>Ano de Lancamento</label>
-				<form:input path="anoDeLancamento" cssClass="form-control"/>
-				<form:errors path="anoDeLancamento" cssStyle="color: red;"></form:errors>
+				<label>Data de criação:</label>
+				<form:input path="dataCriacao" cssClass="form-control"/>
+				<form:errors path="dataCriacao" cssStyle="color: red;"></form:errors>
 			</div>
 		</div>
 	</div>
-
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Album:</label>
+				<form:select path="album.id" cssClass="form-control">
+					<form:options items="${albuns}" itemLabel="nome" itemValue="id" />
+				</form:select>
+			</div>
+		</div>
+	</div>
 	<input type="submit" value="Salvar!" class="btn btn-default"/>
 </form:form>
 </body>

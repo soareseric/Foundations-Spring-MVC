@@ -18,6 +18,7 @@ import br.com.ericsoares.springmvc.repositories.AlbumRepository;
 import br.com.ericsoares.springmvc.repositories.MusicaRepository;
 
 @Controller
+@RequestMapping(value = "/musicas")
 public class MusicasController {
 
 	@Autowired
@@ -46,7 +47,7 @@ public class MusicasController {
 			return "musica.adicionar.tiles";
 		}
 		repoMusica.save(novaMusica);
-		return "redirect:/musicas/listas";
+		return "redirect:/musicas/listar";
 	}
 	
 	@RequestMapping(value = "/alterar/{id}", method = RequestMethod.GET)
