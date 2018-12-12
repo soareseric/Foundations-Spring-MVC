@@ -42,20 +42,23 @@
 			var nomeAlbum = $('#txt-pesquisa').val();
 			$.ajax({
 				method: 'GET', 
-				url: '/spring-mvc/albuns/porNome/' + nomeAlbum,
+				url: '/spring-mvc/albuns/porNome?nome=' + nomeAlbum,
 				success: function(data) {
 					$('#tbl-albuns tbody > tr').remove();
-					$('#tbl-albuns tbody').append(
-						'<tr>' +
-						'	<td>' + data.id + '</td>' +
-						'	<td>' + data.nome + '</td>' +
-						'	<td>' + data.anoDeLancamento + '</td>' +
-						'	<td>' +
-						'		<a href="/spring-mvc/albuns/alterar/' + data.id + '">Alterar</a> |' +
-						'		<a href="/spring-mvc/albuns/excluir/' + data.id + '">Excluir</a>' +
-						'	</td>' +	
-						'</tr>'
-					);
+					$.each(data, function(index, album) {	
+						$('#tbl-albuns tbody').append(
+								'<tr>' +
+								'	<td>' + album.id + '</td>' +
+								'	<td>' + album.nome + '</td>' +
+								'	<td>' + album.anoDeLancamento + '</td>' +
+								'	<td>' +
+								'		<a href="/spring-mvc/albuns/alterar/' + album.id + '">Alterar</a> |' +
+								'		<a href="/spring-mvc/albuns/excluir/' + album.id + '">Excluir</a>' +
+								'	</td>' +	
+								'</tr>'
+							);	
+					});
+					
 				},
 				error: function() {
 					alert("Houve um erro na requisição");
